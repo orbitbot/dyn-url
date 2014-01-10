@@ -1,0 +1,16 @@
+{
+  "name": "dynamic-url",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": { 
+    "type" : "git", 
+    "url" : "http://github.com/orbitbot/dyn-url"
+  },
+  "dependencies": {
+    "express": "3.4.7",
+    "jade": "*"
+  }
+}
