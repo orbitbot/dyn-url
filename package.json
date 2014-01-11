@@ -5,12 +5,13 @@
   "scripts": {
     "start": "node app.js"
   },
-  "repository": { 
-    "type" : "git", 
-    "url" : "http://github.com/orbitbot/dyn-url"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/orbitbot/dyn-url"
   },
   "dependencies": {
     "express": "3.4.7",
-    "jade": "*"
+    "jade": "*",
+    "socket.io": "~0.9.16"
   }
 }

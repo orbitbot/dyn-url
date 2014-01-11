@@ -7,6 +7,7 @@ Requirements
 ------------
 
 * node.js
+* bower.js
 
 
 Try it out
@@ -16,6 +17,7 @@ Try it out
 git clone https://github.com/orbitbot/dyn-url
 cd dyn-url
 npm install
+bower install
 node app.js
 ```
 
@@ -25,7 +27,7 @@ Licence
 
 The MIT License (MIT)
 
-Copyright (c) 2014 orbitbot
+Copyright (c) 2014 Patrik Johnson [http://github.com/orbitbot]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
