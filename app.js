@@ -56,7 +56,7 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 var sockets = io.listen(server);
 
 sockets.on('connection', function(socket) {
-  socket.emit('ready');
+  socket.emit('room-update', rooms);
 
   socket.on('create', function(ack) {
     console.log('got create');
@@ -64,6 +64,7 @@ sockets.on('connection', function(socket) {
     rooms[randomUrl] = true;
     console.log(util.inspect(rooms));
     ack(randomUrl);
+    socket.emit('room-update', rooms);
   });
 
   socket.on('destroy', function(roomId, ack) {
@@ -75,5 +76,13 @@ sockets.on('connection', function(socket) {
       ack(false);
     }
     console.log(util.inspect(rooms));
+    socket.emit('room-update', rooms);
+  });
+
+  socket.on('clear', function(ack) {
+    rooms = {};
+    ack(true);
+    console.log(util.inspect(rooms));
+    socket.emit('room-update', rooms);
   });
 });
