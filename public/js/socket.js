@@ -1,9 +1,14 @@
 var socket = io.connect();
 
 socket.on('room-update', function(currentRooms) {
+  if ($.isEmptyObject(currentRooms))
+    $(".clear-btn").hide();
+  else
+    $(".clear-btn").show();
+
   $("#allRooms ul").empty();
   $.each( currentRooms, function( key, value ) {
-    $("#allRooms ul").append('<li><a href="/rooms/' + key +'">' + key +'</a></li>');
+    $("#allRooms ul").append('<a href="/rooms/' + key +'"><li>' + key +'</li></a>');
   });
 });
 
@@ -24,5 +29,5 @@ $(document).ready(function() {
     socket.emit('clear', function(result) {
       console.log(result);
     });
-  });  
+  });
 });

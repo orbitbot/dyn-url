@@ -1,10 +1,23 @@
 extends layout
 
 block content
-  p welcome to #{title}
+  #greeter
+    h1 Welcome!
+    p 
+      | This is a small Proof-of-concept app for creating dynamic chatroom-like urls with 
+      a(href="http://expressjs.com") express
+      | . Additionally, this small app makes use of 
+      a(href="http://socket.io/") socket.io
+      | , 
+      a(href="http://jade-lang.com/") jade
+      | , 
+      a(href="http://jquery.com/") jquery 
+      | and 
+      a(href="http://getbootstrap.com/") bootstrap 
+      | for the plumbing and shiny. 
 
   p
-    button(class="create-btn") Create room
+    button(class="create-btn") Create a room
 
   #allRooms
     ul

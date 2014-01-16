@@ -25,7 +25,7 @@ if ('development' == app.get('env')) {
 app.use(function(req, res, next) {
   res.status(404);
   if (req.accepts('html')) {
-    res.render('404', { title: 'Express Dynamic URLs - no such page' });
+    res.render('404', { title: 'Dynamic URL Example - no such page' });
   } else if (req.accepts('json')) {
     res.send({ error: 'Not found' });
   } else {
@@ -37,7 +37,7 @@ var util = require('util');
 var rooms = {};
 
 app.get('/(rooms)?/?', function(req, res) {
-  res.render('index', { title: 'Express Dynamic URLs' });
+  res.render('index', { title: 'Dynamic URL Example App' });
 });
 
 app.get('/rooms/:id', function(req, res) {
