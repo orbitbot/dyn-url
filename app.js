@@ -33,13 +33,16 @@ app.use(function(req, res, next) {
   }
 });
 
+var util = require('util');
+var rooms = {};
+
 app.get('/(rooms)?/?', function(req, res) {
   res.render('index', { title: 'Express Dynamic URLs' });
 });
 
 app.get('/rooms/:id', function(req, res) {
   var roomId = req.params.id;
-  if (true) {
+  if (rooms[roomId]) {
     res.render('room', { title: 'Room id: ' + roomId, name: roomId });
   } else {
     res.render('no_room', { title: 'Couldn\'t find that room', name: roomId });
@@ -53,14 +56,24 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 var sockets = io.listen(server);
 
 sockets.on('connection', function(socket) {
-  console.log('socket connected');
   socket.emit('ready');
 
-  socket.on('msg', function() {
-    console.log('got message');
+  socket.on('create', function(ack) {
+    console.log('got create');
+    var randomUrl = Math.random().toString(36).slice(2);
+    rooms[randomUrl] = true;
+    console.log(util.inspect(rooms));
+    ack(randomUrl);
   });
 
-  socket.on('disconnect', function() {
-    console.log('socket disconnected');
+  socket.on('destroy', function(roomId, ack) {
+    console.log('got destroy');
+    if (rooms[roomId]) {
+      delete rooms[roomId];
+      ack(true);
+    } else {
+      ack(false);
+    }
+    console.log(util.inspect(rooms));
   });
 });

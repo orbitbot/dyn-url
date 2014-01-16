@@ -2,6 +2,7 @@
   "name": "dynamic-url",
   "version": "0.0.1",
   "dependencies": {
+    "jquery": "*",
     "socket.io-client": "*"
   }
 }
