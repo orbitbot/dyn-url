@@ -1,7 +1,7 @@
 dyn-url
 =======
 
-A proof of concept implementation of dynamic url generation with Node.js and Express
+A proof of concept implementation of dynamic page generation with Node.js and Express
 
 Requirements
 ------------
@@ -24,7 +24,7 @@ $ node app.js
 Notes
 -----
 
-- the main font is (League Gothic)[https://www.theleagueofmoveabletype.com/league-gothic], while Tinet is used in the logo (retrieved from (Font Squirrel)[http://www.fontsquirrel.com/fonts/Tinet])
+- the main font is [League Gothic](https://www.theleagueofmoveabletype.com/league-gothic), while Tinet is used in the logo (retrieved from [Font Squirrel](http://www.fontsquirrel.com/fonts/Tinet))
 - there's a miniscule chance of a collision when generating a room url, since there's no check in place for this in the code. Handle this if you're using this as a blueprint and/or changing the random url generation scheme to something else, the case is omitted here for brevity
 
 Licence
@@ -32,7 +32,7 @@ Licence
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Patrik Johnson [http://github.com/orbitbot]
+Copyright (c) 2014 Patrik Johnson -- http://github.com/orbitbot
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
