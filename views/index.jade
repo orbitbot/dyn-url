@@ -1,28 +1,36 @@
 extends layout
 
 block content
-  #greeter
-    h1 Welcome!
-    p 
-      | This is a small Proof-of-concept app for creating dynamic chatroom-like urls with 
+  .centered.column.border-deco.extra-padding-top
+  
+  p.title EXPRESS DYNAMIC URL ROUTES
+  
+  .centered.column.border-deco
+  .centered.column.subtitle.underlined.smaller-font
+    | Get the source on 
+    a(href='http://github.com/orbitbot/dyn-url') github
+    
+  .centered.column
+    p
+      | This is a small Proof-of-concept app for dynamically  
+      | generated pages with random urls using  
       a(href="http://expressjs.com") express
-      | . Additionally, this small app makes use of 
+      | . Additionally, the app makes use of 
       a(href="http://socket.io/") socket.io
       | , 
       a(href="http://jade-lang.com/") jade
       | , 
-      a(href="http://jquery.com/") jquery 
-      | and 
-      a(href="http://getbootstrap.com/") bootstrap 
-      | for the plumbing and shiny. 
+      a(href="http://jquery.com/") jquery
+      |  and 
+      a(href="http://getbootstrap.com/") bootstrap
+      |  for the plumbing and shiny. 
+    p
+      button(class="create-btn") Create a page
 
-  p
-    button(class="create-btn") Create a room
+    #pages
+      ul.centered
 
-  #allRooms
-    ul
-
-  p
-    button(class="clear-btn") Remove all rooms
+    p
+      button(class="clear-btn") Remove all pages
 
   script(type='text/javascript', src='/js/frontend.js')

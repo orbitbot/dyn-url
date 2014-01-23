@@ -1,6 +1,15 @@
 extends layout
 
 block content
-  p we couldn't find the page you're looking for
-  p 
-    a(href='/') go back to the start
+  .centered.column.extra-padding-top
+    p 
+      span.huge-font 404: 
+      | we couldn't find the page you're looking for
+    p it's probably not there. 
+
+    p 
+      a(href='/') go back to the start
+
+    .footer.underlined.smaller-font
+      | Get the source on 
+      a(href='http://github.com/orbitbot/dyn-url') github

@@ -2,12 +2,13 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/webfonts/stylesheet.css')
     link(rel='stylesheet', href='/css/style.css')
     script(type='text/javascript', src='/libs/jquery/jquery.min.js')
+    script(type='text/javascript', src='/libs/bootstrap/dist/js/bootstrap.min.js')
     script(type='text/javascript', src='/libs/socket.io-client/dist/socket.io.js')
   body
+    .centered.container
+      .circle
+        .logo ?
     block content
-
-    #footer
-      | Get the source on 
-      a(href='http://github.com/orbitbot/dyn-url') github
