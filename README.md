@@ -6,21 +6,26 @@ A proof of concept implementation of dynamic url generation with Node.js and Exp
 Requirements
 ------------
 
-* node.js
-* bower.js
+- node.js
+- bower.js
 
 
 Try it out
 ----------
 
-```
-git clone https://github.com/orbitbot/dyn-url
-cd dyn-url
-npm install
-bower install
-node app.js
+```bash
+$ git clone https://github.com/orbitbot/dyn-url
+$ cd dyn-url
+$ npm install
+$ bower install
+$ node app.js
 ```
 
+Notes
+-----
+
+- the main font is (League Gothic)[https://www.theleagueofmoveabletype.com/league-gothic], while Tinet is used in the logo (retrieved from (Font Squirrel)[http://www.fontsquirrel.com/fonts/Tinet])
+- there's a miniscule chance of a collision when generating a room url, since there's no check in place for this in the code. Handle this if you're using this as a blueprint and/or changing the random url generation scheme to something else, the case is omitted here for brevity
 
 Licence
 =======
