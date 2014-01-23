@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  script(type='text/javascript').
+    var pageId =!{ JSON.stringify(name) };
+
+  .centered.column.extra-padding-top
+    p This is a page with the id 
+      span.underlined #{name}
+
+    p
+      button(class="destroy-btn") Destroy this page
+
+    p
+      a(href='/') go back to the start
+
+    script(type='text/javascript', src='/js/frontend.js')
+
+    .footer.underlined.smaller-font
+      | Get the source on 
+      a(href='http://github.com/orbitbot/dyn-url') github

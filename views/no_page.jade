@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .centered.column.extra-padding-top
+    p Hmm, we couldn't find a page with the id  
+      span.underlined #{name}
+    p
+      a(href='/') go back to the start
+
+    .footer.underlined.smaller-font
+      | Get the source on 
+      a(href='http://github.com/orbitbot/dyn-url') github

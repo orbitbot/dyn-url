@@ -33,19 +33,18 @@ app.use(function(req, res, next) {
   }
 });
 
-var util = require('util');
-var rooms = {};
+var pages = {};
 
-app.get('/(rooms)?/?', function(req, res) {
-  res.render('index', { title: 'Dynamic URL Example App' });
+app.get('/(pages)?/?', function(req, res) {
+  res.render('index', { title: 'Dynamic URL Example' });
 });
 
-app.get('/rooms/:id', function(req, res) {
-  var roomId = req.params.id;
-  if (rooms[roomId]) {
-    res.render('room', { title: 'Room id: ' + roomId, name: roomId });
+app.get('/pages/:id', function(req, res) {
+  var pageId = req.params.id;
+  if (pages[pageId]) {
+    res.render('page', { title: 'page id: ' + pageId, name: pageId });
   } else {
-    res.render('no_room', { title: 'Couldn\'t find that room', name: roomId });
+    res.render('no_page', { title: 'Couldn\'t find that page', name: pageId });
   }
 });
 
@@ -56,33 +55,31 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 var sockets = io.listen(server);
 
 sockets.on('connection', function(socket) {
-  socket.emit('room-update', rooms);
+  socket.emit('page-update', pages);
 
   socket.on('create', function(ack) {
-    console.log('got create');
     var randomUrl = Math.random().toString(36).slice(2);
-    rooms[randomUrl] = true;
-    console.log(util.inspect(rooms));
+    pages[randomUrl] = true;
     ack(randomUrl);
-    socket.emit('room-update', rooms);
+    socket.emit('page-update', pages);
+    socket.broadcast.emit('page-update', pages);
   });
 
-  socket.on('destroy', function(roomId, ack) {
-    console.log('got destroy');
-    if (rooms[roomId]) {
-      delete rooms[roomId];
+  socket.on('destroy', function(pageId, ack) {
+    if (pages[pageId]) {
+      delete pages[pageId];
       ack(true);
     } else {
       ack(false);
     }
-    console.log(util.inspect(rooms));
-    socket.emit('room-update', rooms);
+    socket.emit('page-update', pages);
+    socket.broadcast.emit('page-update', pages);
   });
 
   socket.on('clear', function(ack) {
-    rooms = {};
+    pages = {};
     ack(true);
-    console.log(util.inspect(rooms));
-    socket.emit('room-update', rooms);
+    socket.emit('page-update', pages);
+    socket.broadcast.emit('page-update', pages);
   });
 });
