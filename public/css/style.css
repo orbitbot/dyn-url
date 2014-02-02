@@ -38,13 +38,12 @@ ul li {
 
 .title {
   color: #b93d3d;
-  height: 78px;
   font-size: 72px;
   font-weight: bold;
   padding-top: 16px;
   padding-bottom: 16px;
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .subtitle {
