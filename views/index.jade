@@ -11,7 +11,7 @@ block content
     a(href='http://github.com/orbitbot/dyn-url') github
     
   .centered.column
-    p
+    p#welcome
       | This is a small Proof-of-concept app for dynamically  
       | generated pages with random urls using  
       a(href="http://expressjs.com") express
@@ -19,18 +19,17 @@ block content
       a(href="http://socket.io/") socket.io
       | , 
       a(href="http://jade-lang.com/") jade
-      | , 
-      a(href="http://jquery.com/") jquery
       |  and 
-      a(href="http://getbootstrap.com/") bootstrap
-      |  for the plumbing and shiny. 
+      a(href="http://jquery.com/") jquery
+      |  for the plumbing and shiny.
+
+    p#status
+
     p
       button(class="create-btn") Create a page
+      button(class="clear-btn") Remove all pages
 
     #pages
       ul.centered
-
-    p
-      button(class="clear-btn") Remove all pages
 
   script(type='text/javascript', src='/js/frontend.js')

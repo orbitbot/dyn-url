@@ -1,9 +1,11 @@
 var socket = io.connect();
 
 socket.on('page-update', function(currentPages) {
-  if ($.isEmptyObject(currentPages))
+  if ($.isEmptyObject(currentPages)) {
     $(".clear-btn").hide();
-  else
+    $("#status").hide();
+    $("#welcome").show();
+  } else
     $(".clear-btn").show();
 
   $("#pages ul").empty();
@@ -13,9 +15,13 @@ socket.on('page-update', function(currentPages) {
 });
 
 $(document).ready(function() {
+  $("#status").hide();
   $(".create-btn").click(function() {
     socket.emit('create', function(pageId) {
-      console.log(pageId);
+      $("#welcome").hide();
+      var newText = "<p>You've just created a new page with the id " + pageId + "!</p>";
+      newText += "<p>Click on the page id links below to visit the invidual pages</p>";
+      $("#status").show().html(newText);
     });
   });
 
