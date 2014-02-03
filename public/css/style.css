@@ -99,6 +99,11 @@ ul li {
   margin-bottom: 20px;
 }
 
+.remove-btn {
+  float:right;
+  margin-top: 5px;
+}
+
 .footer {
   margin-top: 5em;
   padding-top: 20px;
